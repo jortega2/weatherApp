@@ -4,13 +4,13 @@
  * @return {Object}
  */
 export default function weatherFactory(weatherData) {
-  let minTemp = weatherData.main.temp_min;
-  let maxTemp = weatherData.main.temp_max;
-  let temp = weatherData.main.temp;
-  let humidity = weatherData.main.humidity;
-  let feelsLike = weatherData.main.feels_like;
-  let weather = weatherData.weather[0].main;
-  let weatherDesc = weatherData.weather[0].description;
+  let minTemp;
+  let maxTemp;
+  let temp;
+  let humidity;
+  let feelsLike;
+  let weather;
+  let weatherDesc;
 
   if (!weatherData.cod || weatherData.cod !== 200) {
     minTemp = 0;

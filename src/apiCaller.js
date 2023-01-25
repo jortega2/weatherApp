@@ -24,12 +24,31 @@ const apiCaller = (function () {
    * @param {string} url - the api link to fetch weather information from
    * @return {object} data - the data containing the weather information
    */
-  async function getResponse() {
+  async function getCurrentWeather() {
     if (!url) {
       return null;
     }
     try {
       const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+    return null;
+  }
+
+  /**
+   * 
+   */
+  async function getWeatherForecast(){
+    if (!url) {
+      return null;
+    }
+    try {
+      const forecastURL = url.replace("weather?", "forecast?");
+      console.log(forecastURL);
+      const response = await fetch(forecastURL);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -51,7 +70,7 @@ const apiCaller = (function () {
     system = newSystem;
   }
 
-  return { getResponse, setInput, setSystem };
+  return { getCurrentWeather, setInput, setSystem, getWeatherForecast};
 })();
 
 export default apiCaller;
