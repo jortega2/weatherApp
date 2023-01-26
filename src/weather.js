@@ -3,7 +3,7 @@
  * @param {{Object}} weatherData
  * @return {Object}
  */
-export function weatherFactory(weatherData, unit) {
+export function weatherFactory(weatherData) {
   const minTemp = weatherData.main.temp_min;
   const maxTemp = weatherData.main.temp_max;
   const temp = weatherData.main.temp;
@@ -12,19 +12,28 @@ export function weatherFactory(weatherData, unit) {
   const weather = weatherData.weather[0].main;
   const weatherDesc = weatherData.weather[0].description;
   const date = weatherData.dt_txt;
+  const unit = 'F';
+  // const title = weatherData.
+  /**
+   * Update unit of measurement
+   * @param {String} newUnit 
+   */
+  function setUnit(newUnit){
+    unit = newUnit;
+  }
   /**
    * min temp getter
    * @return {Number} minimum temperature
    */
   function getMinTemp() {
-    return minTemp;
+    return Math.round(minTemp*10)/10 + `°${unit}`;
   }
   /**
    * max temp getter
    * @return {Number}
    */
   function getMaxTemp() {
-    return maxTemp;
+    return Math.round(maxTemp*10)/10 + `°${unit}`;
   }
 
   /**
@@ -32,7 +41,7 @@ export function weatherFactory(weatherData, unit) {
    * @return {Number}
    */
   function getTemp() {
-    return temp + `°${unit}`;
+    return Math.round(temp*10)/10 + `°${unit}`;
   }
 
   /**
@@ -80,7 +89,8 @@ export function weatherFactory(weatherData, unit) {
     getFeelsLike,
     getWeather,
     getWeatherDesc,
-    getDate
+    getDate,
+    setUnit
   };
 }
 /**
@@ -88,15 +98,15 @@ export function weatherFactory(weatherData, unit) {
  * @param {object} forecastData
  * @return {array} array of objects
  **/
-export function forecastFactory(forecastData, unit) {
+export function forecastFactory(forecastData) {
   if (!forecastData.cod || forecastData.cod !== "200") {
     return [];
   }
-  const day1 = weatherFactory(forecastData.list[5], unit);
-  const day2 = weatherFactory(forecastData.list[13], unit);
-  const day3 = weatherFactory(forecastData.list[21], unit);
-  const day4 = weatherFactory(forecastData.list[29], unit);
-  const day5 = weatherFactory(forecastData.list[37], unit);
+  const day1 = weatherFactory(forecastData.list[5]);
+  const day2 = weatherFactory(forecastData.list[13]);
+  const day3 = weatherFactory(forecastData.list[21]);
+  const day4 = weatherFactory(forecastData.list[29]);
+  const day5 = weatherFactory(forecastData.list[37]);
 
   return [day1, day2, day3, day4, day5];
 }
