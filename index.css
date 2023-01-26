@@ -47,6 +47,7 @@ body {
   flex-direction:column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .today img{
@@ -99,34 +100,38 @@ body {
   text-align: right;
 }
 
-.sunny{
+.Clear{
   background-color: rgb(241, 206, 140);
 }
 
-.rainy{
+.Rain{
   background-color: lightblue;
 }
 
-.cloudy{
+.Clouds{
   background-color: gray;
 }
 
-.snowy{
+.Snow{
   background-color: white;
 }
 
-.card.sunny{
+.card.Clear{
   border-color: orange;
 }
 
-.card.rainy{
+.card.Rain{
   border-color: gray;
 }
 
-.card.cloudy{
+.card.Clouds{
   border-color: black;
 }
 
-.card.snowy{
+.card.Snow{
   border-color: aqua;
+}
+
+comma{
+  margin-right: 5px;
 }
