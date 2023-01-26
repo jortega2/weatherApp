@@ -39,9 +39,9 @@ const apiCaller = (function () {
   }
 
   /**
-   * 
+   *
    */
-  async function getWeatherForecast(){
+  async function getWeatherForecast() {
     if (!url) {
       return null;
     }
@@ -69,7 +69,7 @@ const apiCaller = (function () {
     system = newSystem;
   }
 
-  return { getCurrentWeather, setInput, setSystem, getWeatherForecast};
+  return { getCurrentWeather, setInput, setSystem, getWeatherForecast };
 })();
 
 export default apiCaller;

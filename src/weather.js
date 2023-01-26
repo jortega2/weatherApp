@@ -12,13 +12,13 @@ export function weatherFactory(weatherData) {
   const weather = weatherData.weather[0].main;
   const weatherDesc = weatherData.weather[0].description;
   const date = weatherData.dt_txt;
-  const unit = 'F';
+  const unit = "F";
   const title = weatherData.name;
   /**
    * Update unit of measurement
-   * @param {String} newUnit 
+   * @param {String} newUnit
    */
-  function setUnit(newUnit){
+  function setUnit(newUnit) {
     unit = newUnit;
   }
   /**
@@ -26,14 +26,14 @@ export function weatherFactory(weatherData) {
    * @return {Number} minimum temperature
    */
   function getMinTemp() {
-    return Math.round(minTemp*10)/10 + `°${unit}`;
+    return Math.round(minTemp * 10) / 10 + `°${unit}`;
   }
   /**
    * max temp getter
    * @return {Number}
    */
   function getMaxTemp() {
-    return Math.round(maxTemp*10)/10 + `°${unit}`;
+    return Math.round(maxTemp * 10) / 10 + `°${unit}`;
   }
 
   /**
@@ -41,7 +41,7 @@ export function weatherFactory(weatherData) {
    * @return {Number}
    */
   function getTemp() {
-    return Math.round(temp*10)/10 + `°${unit}`;
+    return Math.round(temp * 10) / 10 + `°${unit}`;
   }
 
   /**
@@ -77,14 +77,31 @@ export function weatherFactory(weatherData) {
    * get weather Date
    * @return {String}
    */
-  function getDate(){
-    return date.slice(5,10);
+  function getDate() {
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const dates = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Spet",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    return `${dates[Number(month) - 1]} ${day}`;
   }
   /**
    * get name/title of location
    * @return {string}
    */
-  function getTitle(){
+  function getTitle() {
     return title;
   }
 
@@ -98,7 +115,7 @@ export function weatherFactory(weatherData) {
     getWeatherDesc,
     getDate,
     setUnit,
-    getTitle
+    getTitle,
   };
 }
 /**
