@@ -1,6 +1,7 @@
 const elementLoader = (function () {
   // get html today elements
   const body = document.body;
+  const today = document.querySelector(".today");
   const todayImg = document.querySelector(".today img");
   const weather = document.querySelector(".today .weather");
   const weatherDesc = document.querySelector(".today .description");
@@ -18,7 +19,8 @@ const elementLoader = (function () {
   const dates = document.querySelectorAll(".card .date");
 
   /**
-   * loads today's weather data onto index.html
+   * load data onto html
+   * @param {object}} weatherData
    */
   function loadToday(weatherData) {
     if (weatherData === null) {
@@ -27,6 +29,7 @@ const elementLoader = (function () {
     }
     body.classList = "";
     body.classList = weatherData.getWeather();
+    today.classList = "today";
     title.textContent = weatherData.getTitle();
     todayImg.src = `../images/${weatherData.getWeather()}.png`;
     weather.textContent = weatherData.getWeather();
@@ -39,7 +42,7 @@ const elementLoader = (function () {
 
   /**
    * loads data onto html
-   * @param {Array} forecastData
+   * @param {Array} forecastData array of weather objects
    */
   function loadForecast(forecastData) {
     for (let i = 0; i < forecastData.length; i++) {
