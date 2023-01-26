@@ -8,6 +8,7 @@ const elementLoader = function(){
   const tempHigh = document.querySelector('.today .high');
   const tempLow = document.querySelector('.today .low');
   const humidity = document.querySelector('.today .humidity');
+  const title = document.querySelector('.title');
 
   // get html forecast elements
   const forecast = document.querySelectorAll('.card');
@@ -26,6 +27,7 @@ const elementLoader = function(){
     }
     body.classList = "";
     body.classList = weatherData.getWeather();
+    title.textContent = weatherData.getTitle();
     todayImg.src = `../images/${weatherData.getWeather()}.png`;
     weather.textContent = weatherData.getWeather();
     weatherDesc.textContent = weatherData.getWeatherDesc();

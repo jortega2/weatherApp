@@ -13,7 +13,7 @@ export function weatherFactory(weatherData) {
   const weatherDesc = weatherData.weather[0].description;
   const date = weatherData.dt_txt;
   const unit = 'F';
-  // const title = weatherData.
+  const title = weatherData.name;
   /**
    * Update unit of measurement
    * @param {String} newUnit 
@@ -80,6 +80,13 @@ export function weatherFactory(weatherData) {
   function getDate(){
     return date.slice(5,10);
   }
+  /**
+   * get name/title of location
+   * @return {string}
+   */
+  function getTitle(){
+    return title;
+  }
 
   return {
     getMinTemp,
@@ -90,7 +97,8 @@ export function weatherFactory(weatherData) {
     getWeather,
     getWeatherDesc,
     getDate,
-    setUnit
+    setUnit,
+    getTitle
   };
 }
 /**
