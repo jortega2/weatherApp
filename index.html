@@ -6,8 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="main.js" defer></script>
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
-  <button>Can't wait to nest this with more async</button>
+<body class='sunny'>
+  <form action="post" class = "searchForm">
+    <div class="searchContainer">
+      <input type="search" name="search" id = "search" placeholder='city, zip code, or coordinates'>
+      <img src="../images/magnify-48.png" alt="magnifying glass">
+  </form>
+  </div>
+  <div class="today">
+    <img src="../images/icons8-sun-star-48.png" alt="today's weather" onerror="this.style.display='none'">
+    <div class="weatherInfo">
+      <span class='weather'>Sunny</span>
+      <span class ='description'>Clear</span>
+    </div>
+    <div class="temperatureInfo">
+      <div class="spaceBetween">
+        <span>Current:</span>
+        <span class='temp'>78°F</span>
+      </div>
+      <div class="spaceBetween">
+        <span>Humidity:</span>
+        <span class='humidity'>70</span>
+      </div>
+      <div class="spaceBetween">
+        <span>High:</span>
+        <span class='high'>80°F</span>
+      </div>
+      <div class="spaceBetween">
+        <span>Low:</span>
+        <span class='low'>70°F</span>
+      </div>
+    </div>
+  </div>
+  <div class="forecast">
+    <div class="card sunny">
+      <img src="../images/icons8-sun-star-48.png" alt="today's weather" onerror="this.style.display='none'">
+      <span class='cWeather'>Sunny</span>
+      <comma>,</comma>
+      <span class='cTemp'>78°F</span>
+      <span class='date'>Jan 25</span>
+    </div>
+    <div class="card rainy">
+      <img src="../images/icons8-rainfall-40.png" alt="today's weather" onerror="this.style.display='none'">
+      <span class='cWeather'>Sunny</span>
+      <comma>,</comma>
+      <span class='cTemp'>78°F</span>
+      <span class='date'>Jan 25</span>
+    </div>
+    <div class="card cloudy">
+      <img src="../images/icons8-clouds-40.png" alt="today's weather" onerror="this.style.display='none'">
+      <span class='cWeather'>Sunny</span>
+      <comma>,</comma>
+      <span class='cTemp'>78°F</span>
+      <span class='date'>Jan 25</span>
+    </div>
+    <div class="card snowy">
+      <img src="../images/icons8-snowflake-48.png" alt="today's weather" onerror="this.style.display='none'">
+      <span class='cWeather'>Sunny</span>
+      <comma>,</comma>
+      <span class='cTemp'>78°F</span>
+      <span class='date'>Jan 25</span>
+    </div>
+    <div class="card"> 
+      <img src="../images/icons8-sun-star-48.png" alt="today's weather" onerror="this.style.display='none'">
+      <span class='cWeather'>Sunny</span>
+      <comma>,</comma>
+      <span class='cTemp'>78°F</span>
+      <span class='date'>Jan 25</span>
+    </div>
+  </div>
 </body>
 </html>
