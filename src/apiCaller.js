@@ -47,7 +47,6 @@ const apiCaller = (function () {
     }
     try {
       const forecastURL = url.replace("weather?", "forecast?");
-      console.log(forecastURL);
       const response = await fetch(forecastURL);
       const data = await response.json();
       return data;
