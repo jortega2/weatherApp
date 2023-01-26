@@ -3,7 +3,7 @@
  * @param {{Object}} weatherData
  * @return {Object}
  */
-export function weatherFactory(weatherData) {
+export function weatherFactory(weatherData, unit) {
   const minTemp = weatherData.main.temp_min;
   const maxTemp = weatherData.main.temp_max;
   const temp = weatherData.main.temp;
@@ -32,7 +32,7 @@ export function weatherFactory(weatherData) {
    * @return {Number}
    */
   function getTemp() {
-    return temp;
+    return temp + `°${unit}`;
   }
 
   /**
@@ -88,15 +88,15 @@ export function weatherFactory(weatherData) {
  * @param {object} forecastData
  * @return {array} array of objects
  **/
-export function forecastFactory(forecastData) {
+export function forecastFactory(forecastData, unit) {
   if (!forecastData.cod || forecastData.cod !== "200") {
     return [];
   }
-  const day1 = weatherFactory(forecastData.list[5]);
-  const day2 = weatherFactory(forecastData.list[13]);
-  const day3 = weatherFactory(forecastData.list[21]);
-  const day4 = weatherFactory(forecastData.list[29]);
-  const day5 = weatherFactory(forecastData.list[37]);
+  const day1 = weatherFactory(forecastData.list[5], unit);
+  const day2 = weatherFactory(forecastData.list[13], unit);
+  const day3 = weatherFactory(forecastData.list[21], unit);
+  const day4 = weatherFactory(forecastData.list[29], unit);
+  const day5 = weatherFactory(forecastData.list[37], unit);
 
   return [day1, day2, day3, day4, day5];
 }

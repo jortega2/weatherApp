@@ -5,6 +5,7 @@ import { weatherFactory, forecastFactory } from './weather';
  *
  */
 const search = document.querySelector('.searchForm');
+const unit = 'F';
 search.addEventListener('submit', loadPage);
 /**
  * 
@@ -18,9 +19,9 @@ async function loadPage(event){
   const weatherResponse = await apiCaller.getCurrentWeather();
   const forecastResposne = await apiCaller.getWeatherForecast();
   
-  const weather = weatherFactory(weatherResponse);
-  const forecast = forecastFactory(forecastResposne);
-  
+  const weather = weatherFactory(weatherResponse, unit);
+  const forecast = forecastFactory(forecastResposne, unit);
+  console.log(weatherResponse);
   elementLoader.loadToday(weather);
   elementLoader.loadForecast(forecast);
 }
