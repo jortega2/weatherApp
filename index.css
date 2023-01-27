@@ -8,11 +8,12 @@
 body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: stretch;
 
   min-height: 100vh;
   max-width: 100vw;
-  padding: 25px 50px;
+  padding: 25px 25px;
 }
 
 .searchContainer {
@@ -21,8 +22,67 @@ body {
   border-style: solid;
 
   display:flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: white;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 1.5rem;
+}
+
+.switch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before{
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider{
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 .searchContainer img{
@@ -36,7 +96,7 @@ body {
   border-style: none;
   outline-style: none;
 
-  text-align: left;
+  text-align: center;
   background-color: inherit;
 }
 
@@ -46,11 +106,14 @@ body {
   display: flex;
   flex-direction:column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 20px;
+  text-align: center;
+  padding: 0 5px;
 }
 
 .today img{
+  align-self: center;
   height: 100px;
 }
 
@@ -134,4 +197,74 @@ body {
 
 comma{
   margin-right: 5px;
+}
+
+.hidden{
+  display: none;
+}
+
+@media only screen and (min-width: 860px) {
+  body{
+    align-items: center;
+    padding: 50px 50px;
+    font-size: x-large;
+  }
+  form{
+    width: 750px;
+  }
+  
+  .searchContainer{
+    max-width: 100%;
+  }
+  .forecast{
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .card{
+    border-style: solid;
+    border-radius: 15px;
+    padding: 10px;
+  
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: clamp(100px, 200px, 300px);
+
+    height: 300px;
+    width: 300px;
+  }
+
+  .today img{
+    height: 144px;
+  }
+
+  .card img{
+    grid-area: 2 / 1 / 3 / -1;
+    margin-right: 0px;
+    height: 72px;
+  }
+
+  .card .cWeather{
+    grid-area: 3/1/4/-1;
+  }
+
+  .card .cTemp{
+    grid-area:4/1/5/-1;
+  }
+
+  .card .date{
+    text-align: center;
+    grid-area: 1 / 1 / 1 / -1;
+  }
+  
+  .temperatureInfo{
+    grid-gap: 10px 30px;
+    width: 400px;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
