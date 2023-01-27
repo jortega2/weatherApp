@@ -13,6 +13,13 @@ search.addEventListener("submit", loadPage);
 async function loadPage(event) {
   event.preventDefault();
   const input = document.getElementById("search").value;
+  const unit = document.getElementById('unit').checked;
+  if (unit){
+    apiCaller.setSystem("metric");
+  } else {
+    apiCaller.setSystem("imperial");
+  }
+
   let weatherResponse;
   let forecastResponse
 
@@ -30,7 +37,11 @@ async function loadPage(event) {
   }
 
   const weather = weatherFactory(weatherResponse);
+  weather.setUnit(unit);
   const forecast = forecastFactory(forecastResponse);
+  forecast.forEach((weatherObj)=>{
+    weatherObj.setUnit(unit);
+  })
   
   elementLoader.loadToday(weather);
   elementLoader.loadForecast(forecast);

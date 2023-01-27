@@ -12,14 +12,16 @@ export function weatherFactory(weatherData) {
   const weather = weatherData.weather[0].main;
   const weatherDesc = weatherData.weather[0].description;
   const date = weatherData.dt_txt;
-  const unit = "F";
+  let unit = "F";
   const title = weatherData.name;
   /**
    * Update unit of measurement
    * @param {String} newUnit
    */
   function setUnit(newUnit) {
-    unit = newUnit;
+    if (newUnit){
+      unit = "C";
+    }
   }
   /**
    * min temp getter
