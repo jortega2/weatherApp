@@ -97,7 +97,7 @@ input:checked + .slider:before {
   outline-style: none;
 
   text-align: center;
-  background-color: inherit;
+  background-color: white;
 }
 
 .today{

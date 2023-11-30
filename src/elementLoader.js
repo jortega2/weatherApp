@@ -31,7 +31,7 @@ const elementLoader = (function () {
     body.classList = weatherData.getWeather();
     today.classList = "today";
     title.textContent = weatherData.getTitle();
-    todayImg.src = `../images/${weatherData.getWeather()}.png`;
+    todayImg.src = `images/${weatherData.getWeather()}.png`;
     weather.textContent = weatherData.getWeather();
     weatherDesc.textContent = weatherData.getWeatherDesc();
     temp.textContent = weatherData.getTemp();
@@ -48,7 +48,8 @@ const elementLoader = (function () {
     for (let i = 0; i < forecastData.length; i++) {
       forecast[i].classList = "card";
       forecast[i].classList.add(`${forecastData[i].getWeather()}`);
-      images[i].src = `../images/${forecastData[i].getWeather()}.png`;
+      console.log(`images/${forecastData[i].getWeather()}.png`);
+      images[i].src = `images/${forecastData[i].getWeather()}.png`;
       fWeather[i].textContent = forecastData[i].getWeather();
       fTemp[i].textContent = forecastData[i].getTemp();
       dates[i].textContent = forecastData[i].getDate();
